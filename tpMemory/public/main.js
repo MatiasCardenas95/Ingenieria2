@@ -50,7 +50,7 @@ function flipCard(card, index) {
         canFlip = true; // Habilitar el volteo de cartas nuevamente
         if (document.querySelectorAll('.card.matched').length === cards.length) {
           // Juego terminado
-          alert('¡Juego terminado! Puntuación final: Jugador 1 - ' + players[1].score + ', Jugador 2 - ' + players[2].score);
+          alert('¡Juego terminado! Puntuación final: YO 1 - ' + players[1].score + ', OPONENTE 2 - ' + players[2].score);
         }
       }, 500);
     } else {
@@ -69,8 +69,8 @@ function flipCard(card, index) {
 }
 
 function updateScores() {
-  scoreElements[0].textContent = `Jugador 1: ${players[1].score}`;
-  scoreElements[1].textContent = `Jugador 2: ${players[2].score}`;
+  scoreElements[0].textContent = `YO : ${players[1].score}`;
+  scoreElements[1].textContent = `OPONENTE : ${players[2].score}`;
 }
 
 socket.onmessage = (event) => {
@@ -79,14 +79,14 @@ socket.onmessage = (event) => {
     myTurn = message.player === 1;
     cards = message.cards; // Obtener la secuencia de cartas desde el servidor
     createGameBoard(cards); // Construir el tablero de juego con las cartas
+    updateScores(message.scores); // Actualizar la puntuación al inicio del juego
   } else if (message.type === 'flip') {
     flipCard(document.querySelector(`.card[data-index="${message.index}"]`), message.index);
   } else if (message.type === 'score') {
-    players[1] = message.scores[1];
-    players[2] = message.scores[2];
-    updateScores();
+    updateScores(message.scores); // Actualizar la puntuación cuando se recibe una actualización de puntuación
   }
 };
+
 
 socket.onopen = () => {
   socket.send(JSON.stringify({ type: 'ready' }));
