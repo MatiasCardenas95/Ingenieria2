@@ -1,5 +1,5 @@
-/* Estilos para el tablero de juego */
-.memory-game {
+.memory-game 
+{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
@@ -7,34 +7,36 @@
   margin: 0 auto;
 }
 
-.card {
+.card 
+{
   width: 100px;
   height: 100px;
   background-color: #f0f0f0;
-  background-image: url('images/blank.png'); /* Imagen de portada */
-  background-size: contain; /* Asegura que la imagen se ajuste dentro de la carta */
+  background-image: url('images/blank.png'); /* Portada */
+  background-size: contain; /* Imagen se ajuste dentro de la carta */
   background-repeat: no-repeat;
-  background-position: center; /* Centra la imagen vertical y horizontalmente */
+  background-position: center; 
   border: 2px solid #ddd;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s;
 }
 
-.card.matched {
-  pointer-events: none; /* Desactiva el clic en cartas emparejadas */
-  opacity: 0.5; /* Cartas emparejadas más transparentes */
+.card.matched 
+{
+  pointer-events: none;
+  opacity: 0.5; /* Cartas transparentes */
 }
 
-/* Estilos para el marcador de puntuación */
-.score {
+.score 
+{
   font-size: 24px;
   text-align: center;
   margin: 10px;
 }
 
-/* Estilos generales */
-body {
+body 
+{
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   display: flex;
@@ -45,11 +47,13 @@ body {
   margin: 0;
 }
 
-/* Estilos para los jugadores */
-.score:nth-child(1) {
-  color: #2196F3; /* Color del jugador 1 */
+
+.score:nth-child(1) 
+{
+  color: #2196F3; /* Color jugador 1 */
 }
 
-.score:nth-child(2) {
-  color: #E91E63; /* Color del jugador 2 */
+.score:nth-child(2) 
+{
+  color: #E91E63; /* Color jugador 2 */
 }
