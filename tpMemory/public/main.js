@@ -50,7 +50,7 @@ function flipCard(card, index) {
         canFlip = true; // Habilitar el volteo de cartas nuevamente
         if (document.querySelectorAll('.card.matched').length === cards.length) {
           // Juego terminado
-          alert('¡Juego terminado! Puntuación final: YO 1 - ' + players[1].score + ', OPONENTE 2 - ' + players[2].score);
+          alert('¡Juego terminado! Puntuación final: YO - ' + players[1].score + ', OPONENTE - ' + players[2].score);
         }
       }, 500);
     } else {
